@@ -1,0 +1,982 @@
+/* 
+	Project_Name: Ali Store;
+	Author_Name_: Ali Sabry;
+	Linkedin____: https://www.linkedin.com/in/ali-sabry;
+	Version_____: 1.1;
+	Languge_____: Html, Css;
+*/
+
+/* Start Css Vars */
+	:root {
+		--main-color: #254d4d;
+		--primary-color: #324367;
+		--brand-color: #a1a7ba;
+		--section-bg: #f4f6f5;
+		--font-family: 'Open Sans', sans-serif;
+		--main-padding: 50px 0;
+		--transition: all .4s ease;
+	}
+/* End Css Vars */
+
+/* Start Global Rules */
+	/* Google Font */
+	@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300;1,400&display=swap');
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		font-family: 'Open Sans', sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	p {
+		line-height: 1.8;
+	}
+
+	a {
+		text-decoration: none;
+		text-transform: capitalize;
+		transition: var(--transition)
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		text-transform: capitalize;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	/* Continer On All Media */
+		/* small */
+		@media (max-width: 576px) {
+			.container {
+				max-width: 540px;
+			}
+		}
+		/* Medium */
+		@media (min-width: 778px) and (max-width: 991px) {
+			.container {
+				max-width: 720px;
+			}
+		}
+		/* Large */
+		@media (min-width: 992px) and (max-width: 1199px) {
+			.container {
+				max-width: 960px;
+			}
+		}
+		/* Extra Large */
+		@media (min-width: 1200px) and (max-width: 1399px) {
+			.container {
+				max-width: 1120px;
+			}
+		}
+		/* Double Extra Large */
+		@media (min-width: 1400px) {
+			.container {
+				max-width: 1320px;
+			}
+		}
+
+		.container {
+			padding-right: 15px;
+			padding-left: 15px;
+			margin: auto;
+		}
+/* End Global Rules */
+
+/* Start Header */		
+	/* Main Header */
+	header {
+		margin-bottom: 50px;
+	}
+	/* Start UpperBar */
+		header nav {
+			display: grid;
+			align-items: center;
+			grid-template-areas: "brand brand link link link link link link link link other other";
+			text-transform: capitalize;
+			margin-bottom: 30px;
+		} 
+
+		/* Brand Name */
+		header nav .brand-name {
+			grid-area: brand;
+			color: var(--main-color);
+		}
+
+		/* UpperBar List Item */
+		header nav ul li {
+			display: inline-block
+		}
+		header nav ul li a {
+			color: #000
+		}
+		/* Links On Hover */
+		header nav ul li a:hover {
+			color: var(--main-color)
+		}
+
+		/* Links */
+		header nav .links {
+			grid-area: link
+		}
+		header nav .links ul {
+			display: flex;
+			justify-content: space-around
+		}
+		header nav .other ul {
+			display: flex;
+			justify-content: space-around
+		}
+
+		/* Other */
+		header nav .other {
+			grid-area: other;
+		}
+
+		/* Mobile Screen */
+		@media (max-width: 567px) {
+			header nav {
+				display: grid;
+				grid-template-areas: "brand brand brand brand brand"
+									 "link link link link link";
+			}
+			header nav .brand-name h1 {
+				text-align: center;
+				margin: 10px 0 0
+			}
+			header nav .links ul {
+				padding: 0
+			}
+			header nav .other {
+				display: none
+			}
+		}
+	/* End UpperBar */
+
+	/* Start Header Content */
+		header .content {
+			display: grid;
+			grid-template-areas: "text image image image controll";
+			position: relative
+		}
+		/* Content Text */
+		header .content .content-text {
+			grid-area: text;
+			position: absolute;
+			top: 50%;
+			left: -15px;
+			transform: translateY(-50%);
+			width: 350px;
+			height: 390px;
+			line-height: 1.8;
+			padding: 10px;
+			background: linear-gradient(to right bottom,
+								   rgba(255, 255, 255, .5),
+								   rgba(255, 255, 255, .9));
+			color: #000;
+			backdrop-filter: blur(6px);
+			box-shadow: 0 0 40px 0 rgba(0, 0, 0, .2);
+			text-transform: capitalize
+		}
+		header .content .content-text h2 {
+			font-size: 29px;
+			color: var(--main-color);
+			line-height: 1.4
+		}
+		header .content .content-text p {
+			line-height: 2
+		}
+		/* Header Image */
+		header .content .header-bg {
+			grid-area: image;
+			width: 90%;
+			margin: auto
+		}
+		/* Image Reset Size */
+		header .content .header-bg img {
+			max-width: 100%
+		}
+		/* Images Control */
+		header .content .controll {
+			grid-area: controll;
+			/* padding: 10px 20px; */
+			width: 100%;
+			height: 100%;
+			display: grid;
+			align-items: center
+		}
+		/* Controll Cheveron Buttons */
+		header .content .controll ul {
+			margin: 0;
+			padding: 0
+		}
+		header .content .controll ul li {
+			margin-bottom: 20px;
+			cursor: pointer;
+			color: var(--main-color)
+		}
+		/* Images Range */
+		header .content .controll .range {
+			display: inline-block;
+			width: 2px;
+			height: 80px;
+			background-color: var(--main-color);
+			position: relative;
+		}
+		header .content .controll .range::before {
+			content: "01";
+			position: absolute;
+			top: -30px;
+			left: -7px;
+			font-weight: bold;
+		}
+		header .content .controll .range::after {
+			content: "06";
+			position: absolute;
+			bottom: -30px;
+			left: -7px;
+			font-weight: bold;
+		}
+		/* Content Text On Custom Screen */
+		@media (max-width: 380px) {
+			header nav {
+				margin-bottom: 20px
+			}
+			header .content .content-text,
+			header .content .controll .range {
+				display: none
+			}
+		}
+		/* Content Text On Small Screen */
+		@media (max-width: 576px) {
+			header {
+				margin-bottom: 15px
+			}
+			header .content .content-text {
+				width: 300px;
+				height: auto;
+				left: 0
+			}
+			header .content .content-text h2 {
+				font-size: 17px
+			}
+		}
+		/* Content Text On Medium Screen */
+		@media (max-width: 992px) {
+			header .content .content-text {
+				left: 0
+			}
+		}
+	/* End Header Content */
+/* End Header */
+
+/* Start Brands*/
+	/* Brands Logo Parnet */
+	.brands-parent {
+		background-color: var(--section-bg);
+		padding: var(--main-padding);
+		text-align: center
+	}
+	/* Brands Header */
+	.brands-parent h3 {
+		margin-bottom: 30px;
+		color: var(--primary-color);
+	}
+	/* Brands Logos */
+	.brands-logo {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(calc(100% / 5), 1fr));
+	}
+	/* Logo */
+	.brands-logo div {
+		margin-bottom: 30px;
+		font-weight: bold;
+		color: var(--brand-color);
+		text-transform: capitalize;
+		letter-spacing: 2px;
+		text-shadow: 3px 2px 1px rgba(161, 167, 186, .6);
+	}
+
+	/* Brands Logos On Small Screen  */
+	@media (max-width: 576px) {
+		.brands-sec {
+			padding: 10px
+		}
+		.brands-logo {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(calc(100% / 2), 1fr));
+		}
+	}	
+	/* Brands Logos On Mobile Screen  */
+	@media (min-width: 577px) and (max-width: 768px) {
+		.brands-logo {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(calc(100% / 3), 1fr));
+		}
+
+	}
+/* End Brands*/
+
+/* Start Deals */
+	.deals {
+		padding: var(--main-padding);
+		border-bottom: 1px solid var(--main-color);
+	}
+
+	/* Boxes Parent */
+	.deals .deals-parent {
+		display: flex;
+		flex-grow: 1;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 40px;
+	}
+
+	/* Boxes */
+	.deals .deals-parent div {
+		width: calc(100% / 4 - 40px);
+	}
+
+	/* First Box */
+	.deals .deals-parent div:first-child h4 {
+		color: var(--main-color);
+		font-size: 31px;
+		margin: 10px 0 10px;
+	}
+	.deals .deals-parent div:first-child i {
+		color: orange;
+		font-size: 52px;
+	}
+
+	/* Other Boxes Without First Box */
+	.deals .deals-parent div:not(:first-child) i {
+		display: block;
+		margin-bottom: 18px
+	}
+	.deals .deals-parent div p {
+		color: var(--primary-color);
+	}
+	/* Boxes On Small Screen */
+	@media (max-width: 576px) {
+		.deals .deals-parent div {
+			width: 100%;
+			text-align: center
+		}
+	}
+	/* Boxes On Mobile And Tablet Screen */
+	@media (min-width: 577px) and (max-width: 992px) {
+		.deals .deals-parent div {
+			width: calc(100% / 2 - 40px)
+		}
+	}
+/* End Deals */
+
+/* Start About Us */
+	/* Upper Content */
+	.about .upper-info {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(calc(100% / 2 - 40px), 1fr));
+		gap: 0 40px;
+		align-items: center
+	}
+	/* Upper Content Info */
+	.about .upper-info .about-info h5 {
+		font-weight: bold;
+		font-size: 25px;
+		margin-bottom: 20px
+	}
+	.about .upper-info .about-info p {
+		width: 85%
+	}
+	/* The Button */
+	.about .upper-info .about-btn {
+		text-align: right
+	}
+	.about .upper-info .about-btn a {
+		padding: 10px 25px;
+		background-color: var(--section-bg);
+		box-shadow: 0 15px 40px 0 rgba(0, 0, 0, .3);
+		color: #000;
+	}
+	/* Start Steps And Images Parnet */
+		.about .content {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
+		/* Steps */
+		.about .content .steps {
+			display: flex;
+			flex-grow: 1;
+			flex-wrap: wrap;
+			gap: 40px;
+			text-transform: capitalize
+		} 
+		/* Steps Inner Divs */
+		.about .content .steps div {
+			width: calc(100% / 2 - 40px)
+		}
+		/* Inner Divs Head */
+		.about .content .steps div h6 {
+			font-size: 26px;
+			margin-bottom: 15px;
+			color: var(--main-color)
+		}
+		/* Inner Divs Span */
+		.about .content .steps div span {
+			font-weight: bold;
+			font-size: 20px;
+			color: var(--main-color)
+		}
+		/* Images Parent */
+		.about .content .images {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 40px;
+			align-items: center
+		}
+		/* The Images */
+		.about .content .images div img {
+			max-width: 100%
+		}
+		/* Custom Height For First And Last Div */
+		.about .content .images div:first-child,
+		.about .content .images div:last-child {
+			height: 250px;
+			overflow: hidden
+		}
+	/* End Steps And Images */
+
+	/* Start Small Screen Media */
+	@media (max-width: 576px) {
+		/* Start Upper Info */
+			.about .upper-info {
+				grid-template-columns: repeat(1, 1fr);
+				text-align: center
+			}
+			.about .upper-info .about-info {
+				margin-bottom: 25px
+			}
+			/* The Pargraph */
+			.about .upper-info .about-info p {
+				margin: auto
+			}
+			/* The Button */
+			.about .upper-info .about-btn {
+				text-align: center
+			}
+		/* End Upper Info */
+		/* Start About Cotent After Upper Info */
+			.about .content {
+				grid-template-columns: 1fr;
+			}
+		/* End About Cotent After Upper Info */
+		/* Start Steps */
+			.about .content .steps {
+				gap: 0;
+			}
+			.about .content .steps div {
+				width: 100%;
+				text-align: center
+			}
+		/* End Steps */
+		/* Start Images */
+		.about .content .images {
+			gap: 10px 20px;
+		}
+		.about .content .images div:first-child,
+		.about .content .images div:last-child {
+			height: auto
+		}
+	}
+	/* End Small Screen */	
+/* End About Us */
+
+
+/* Start Products */
+	.products {
+		padding: var(--main-padding);
+		margin-bottom: 50px;
+	}
+
+	/* Upper Conetnt On Section  */
+	.products .upper-content {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: center;
+		gap: 0 40px;
+	}
+
+	/* Upper Content Header And The Button Colors */
+	.products .upper-content .head h2,
+	.products .upper-content .all-btn {
+		color: var(--main-color)
+	}
+
+	/* Upper Content Button */
+	.products .upper-content .all-btn a {
+		color: var(--main-color);
+		display: flex;
+	    justify-content: end;
+	    align-items: center;		
+	}
+	.products .upper-content .all-btn a span {
+		display: inline-block;
+		margin-right: 15px;
+	}
+
+	/* Product Type List Items */
+	.products .product-type ul {
+		display: flex;
+		justify-content: space-around;
+		padding: 0;
+		margin: 0 auto;
+		width: 70%;
+	}
+
+	/* Product Type Items */
+	.products .product-type ul li {
+		display: inline-block;
+	}
+
+	/* Product Type Items links */
+	.products .product-type ul li a {
+		color: var(--main-color);
+		opacity: .6
+	}
+
+	/* Product Type Items Active Link */
+	.products .product-type ul li a.active {
+		opacity: 1
+	}
+
+	/* Products Boxes Parent */
+	.products .products-parent {
+		padding: var(--main-padding);
+		margin-top: 50px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 140px 40px;
+	}
+
+	/* Products Boxes */
+	.products .products-parent .product-box {
+		background-color: var(--section-bg);
+		padding: 20px 10px;
+		position: relative;
+		height: 350px;
+		z-index: 1;
+		box-shadow: -1px 1px 7px 0 rgb(0 0 0 / 20%);
+	}
+
+	/* Products Boxes After Soudo Element */
+	.products .products-parent .product-box::after {
+		content: "";
+		position: absolute;
+		bottom: -80px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 70%;
+		height: 80%;
+		background-size: contain;
+		background-repeat: no-repeat;
+		z-index: 10
+	}
+
+	/* First Box Image */
+	.products .products-parent .product-box:first-child::after {
+		background-image: url('../images/product-1.jpg');
+	}
+	/* Second Box Image */
+	.products .products-parent .product-box:nth-child(2)::after {
+		background-image: url('../images/product-2.jpg');
+	}
+	/* Third Box Image */
+	.products .products-parent .product-box:nth-child(3)::after {
+		background-image: url('../images/product-3.jpg');
+	}
+	/* Forth Box Image */
+	.products .products-parent .product-box:nth-child(4)::after {
+		background-image: url('../images/product-2.jpg');
+	}
+	/* Fifth Box Image */
+	.products .products-parent .product-box:nth-child(5)::after {
+		background-image: url('../images/product-5.jpg');
+	}
+	/* Last Box Image */
+	.products .products-parent .product-box:last-child::after {
+		background-image: url('../images/product-1.jpg');
+	}
+
+	/* Box Bdage */
+	.products .product-box .buy-badge {
+		position: absolute;
+		top: -15px;
+		right: 5px;
+		background-color: #d6c3b8;
+		color: #fff;
+		width: 35px;
+		height: 35px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+	}
+	/* Old Price And New */
+	.products .product-box .prices {
+		width: 90%;
+		display: flex;
+		justify-content: space-between;
+	}
+	/* The New Price */
+	.products .product-box .prices span:first-child {
+		font-weight: bold;
+		color: var(--main-color)
+	}
+	/* The Old Price */
+	.products .product-box .prices .old {
+		text-decoration: line-through;
+		opacity: .5
+	}
+
+	/* Small Screen Layout */
+	@media (max-width: 992px) {
+		/* Section Parent */
+		.products {
+			margin-bottom: 0
+		}
+		/* Product Type Buttons */
+		.products .product-type {
+			margin-top: 20px
+		}
+		/* Products Boxes */
+		.products .products-parent {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 40px;
+			padding-bottom: 0
+		}
+	}
+/* End Products */
+
+/* Start Client */
+	.client {
+		padding: var(--main-padding);
+	}
+
+	/* Client Section Content */
+	.client .client-content {
+		background-color: var(--section-bg);
+		position: relative;
+		overflow: hidden
+	}
+	/* Seuode Elements For Client Content */
+	.client .client-content::before,
+	.client .client-content::after {
+		content: "";
+	    position: absolute;
+	    left: 0px;
+	    top: 0px;
+	    width: 200px;
+	    height: 200px;
+	    border-radius: 50%;
+	    border-width: 23px;
+	    border-style: solid;
+	    border-color: var(--main-color);
+	    transform: rotate(45deg) translateX(-145px)
+	}
+	.client .client-content::after {
+		width: 150px;
+	    height: 150px;
+	    left: 20px;
+	    top: 20px;
+	}
+	/* Upper Content */
+	.client .upper-content {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 40px 20px;
+	}
+	/* Upper Content Head */
+	.client .upper-content .head {
+		width: calc(40%);
+		margin: auto;
+	}
+	/* Upper Content Icon */
+	.client .upper-content .icon {
+		width: calc(17%);
+	}
+	.client .upper-content .icon i {
+		display: inline-block;
+		color: #fe7676;
+		padding: 7px;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background-color: #fff;
+		text-align: center;
+	}
+	/* Upper Content Header Pargraph */
+	.client .upper-content .head h2 {
+		color: var(--main-color);
+		font-size: 35px;
+		font-weight: bold;
+	}
+	/* Upper Content Pargraph */
+	.client .upper-content .head p {
+		color: var(--primary-color)
+	}
+	/* Image And Oter Content */
+	.client .other-content {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 40px;
+	}
+	/* Image Parent */
+	.client .other-content .image {
+		width: 70%;
+		margin: auto;
+		position: relative;
+	}
+	/* Image Parent Seudeo After Element */
+	.client .other-content .image::after {
+		font-family: "FontAwesome";
+		content: "\f005";
+		position: absolute;
+		top: 50%;
+		left: -30px;
+		width: 50px;
+		height: 50px;
+		padding: 5px;
+		border-radius: 50%;
+		background-color: #fff;
+		color: orange;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 30px;
+		transform: translateY(-50%)
+	}
+	/* Image */
+	.client .other-content .image img {
+		max-width: 100%
+	}
+	/* Info Text */
+	.client .other-content .info h5 {
+		margin-bottom: 5px;
+	} 
+	/* Client Position  */
+	.client .other-content .info span {
+		text-transform: uppercase;
+    	opacity: 0.7;
+	}
+	/* Arrows */
+	.client .other-content .info ul {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 40px;
+	    padding: 0;
+	    width: 30%;
+	}
+	.client .other-content .info ul li {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background-color: #fff;
+		color: var(--main-color);
+		font-size: 23px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+	/* Layout On Small Screen */
+	@media (max-width: 576px) {
+		/* Section Parent */
+		.client {
+			padding: 0
+		}
+		/* Client Content  */
+		.client .client-content {
+			z-index: 10
+		}
+		/* Client Content Before Seudeo Element */
+		.client .client-content::before,
+        .client .client-content::after {
+        	z-index: -1;
+        	border-width: 7px;
+        	width: 160px;
+        	height: 168px
+        }
+		/* Client Content After Seudeo Element */
+        .client .client-content::after {
+        	left: 0;
+        	top: 0;
+        }
+        /* Upper Content On Small Screen */
+		.client .upper-content {
+			display: block;
+			z-index: 100;
+		}
+		/* Upper Content Head On Small Screen */
+		.client .upper-content .head {
+			width: 100%;
+			text-align: center;
+		}
+		.client .upper-content .head h2 {
+			margin-top: 45px;
+			font-size: 30px
+		}
+		/* Upper Content Icon On Small Screen */
+		.client .upper-content .icon {
+			width: 100%;
+			text-align: center;
+		}
+        /* Other Content */
+        .client .other-content {
+        	grid-template-columns: repeat(1, 1fr);
+        }
+        /* Other Content Info */
+        .client .other-content .info {
+        	text-align: center
+        }
+        /* Other Content Info List Items */
+        .client .other-content ul {
+        	margin: 10px auto
+        }
+	}
+/* End Client */
+
+/* Start Footer */
+	footer {
+		padding: var(--main-padding);
+		background-color: var(--main-color);
+	}
+	/* Change All Heads, pargraph And Links Color */
+	footer h3, footer a, footer p {
+		color: #fff;
+	}
+	/* Footer Upper Content */
+	footer .upper-content {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		border-bottom: 2px solid var(--brand-color);
+		padding: 30px 0;
+	}
+	/* Footer Upper Content Head */
+	footer .upper-content h3 {
+		font-size: 35px
+	} 
+	/* Footer Upper Content List Buttons */
+	footer .upper-content ul {
+		display: flex;
+		justify-content: space-between;
+		width: 50%
+	}
+	/* Footer Upper Content Buttons Style */
+	footer .upper-content ul li a {
+		padding: 10px 25px;
+		border-radius: 20px;
+		border: 2px solid #fff;
+	}
+	/* Active Link */
+	footer .upper-content ul li:first-child a,
+	footer .upper-content ul li a:hover {
+		background-color: #fff;
+		color: var(--main-color)
+	}
+	/* Footer Other Content */
+	footer .other-content {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 40px;
+		padding: var(--main-padding);
+	}
+	/* Footer Other Content List Items */
+	footer .other-content .list ul {
+		margin: 0;
+		padding: 0;
+	}
+	/* Footer Other Content List Item */
+	footer .other-content .list ul li {
+		margin-bottom: 15px
+	}
+	/* Footer Other Content List Item Anchor */
+	footer .other-content .list ul li a {
+		opacity: .8;
+	}
+	/* Footer Other Content List Item Anchor On Hover */
+	footer .other-content .list ul li a:hover {
+		opacity: 1;
+	}
+	/* Small Screen Layout */
+	@media (max-width: 576px) {
+		/* Footer Section */
+		footer {
+			padding: 0
+		}
+		/* Footer Upper Content */
+		footer .upper-content {
+			display: block;
+			text-align: center
+		}	
+		/* Upper Content Head */
+		footer .upper-content h3 {
+		    font-size: 25px;
+		    margin-bottom: 45px;
+		}
+		/* Upper Content List items */
+		footer .upper-content ul {
+			padding: 0;
+			width: 100%
+		}
+		/* Footer Other Content */
+		footer .other-content {
+			grid-template-columns: repeat(2, 1fr)
+		}	
+	}
+	/* Medium Screen Layout */
+	@media (min-width: 577px) and (max-width: 992px) {
+		/* Footer Section */
+		footer {
+			padding: 0
+		}
+		/* Footer Upper Content */
+		footer .upper-content {
+			display: block;
+			text-align: center
+		}	
+		/* Upper Content Head */
+		footer .upper-content h3 {
+		    font-size: 35px;
+		    width: 70%;
+		    margin: 0 auto 53px
+		}
+		/* Upper Content List items */
+		footer .upper-content ul {
+			width: 70%;
+			margin: auto
+		}
+		/* Footer Other Content */
+		footer .other-content {
+			grid-template-columns: repeat(3, 1fr)
+		}	
+	}
+	/* Custom Screen Layout */
+	@media (max-width: 350px) {
+		/* Upper Content Buttons */
+		footer .upper-content ul li {
+			margin-right: 7px
+		}
+		footer .upper-content ul li a {
+			padding: 10px 20px
+		}
+	}
+/* End Footer */
+
