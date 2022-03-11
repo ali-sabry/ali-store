@@ -3,7 +3,7 @@ Static Landing Page Media Query  Responvie .
 
 <hr />
 
-<img src="images/preview.jpg" />
+<img src="images/preview.jpg">
 
 <hr />
 
